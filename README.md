@@ -76,3 +76,18 @@ Open http://localhost:8000/docs
 
 Open http://localhost:8000/docs
  in your browser to explore and test the API using Swagger UI.
+
+ ## 📸 Screenshots
+
+Here are some screenshots showing key parts of the API and Redis caching in action. Click the images to view the project or API docs.
+
+[![Redis Cache Stats](assets/redis_cache_stats.png)](https://github.com/Ashutosh0000000/Recommendation-System-API)
+
+[![Stats Recommended Items](assets/stats-recommened-items.png)](https://github.com/Ashutosh0000000/Recommendation-System-API)
+
+[![Swagger Auth Popup](assets/swagger_auth_popup.png)](http://localhost:8000/docs)
+
+[![Swagger Create Activity](assets/swagger_create-activity.png)](http://localhost:8000/docs)
+
+[![Swagger Post Activity](assets/swagger_post_activity.png)](http://localhost:8000/docs)
+
