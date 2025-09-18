@@ -2,17 +2,19 @@ Recommendation System API
 
 🚀 High-performance FastAPI backend with personalized recommendations and Redis caching (50% DB load reduction, 30% infrastructure cost savings).
 
-🔐 JWT Authentication – secure user registration & login
+📉 50% reduction in database load
 
-📊 Activity Tracking – logs user actions
+💰 30% backend cost savings using async Redis caching with TTL and smart invalidation
 
-📈 Personalized Recommendations – based on user activity
+🔐 JWT-based auth for secure login and protected endpoints
 
-⚡ Redis Caching – reduces DB queries by 50%, saves ~30% infra cost, with TTL & dirty-flag invalidation
+📊 Real-time activity tracking and personalized recommendations
 
-🚀 Fully Async FastAPI – scalable backend for high concurrency
+⚡ Fully async, high-performance API with auto-generated Swagger docs
 
-🧾 Swagger Docs – interactive API testing at /docs
+🧰 Easy local setup with SQLite, migrations, and seed data
+
+✅ Designed for scale: Easily extendable with top products, scheduled cache refresh every 2–3 minutes.
 
 <img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/1f629c9e-ec33-431a-962b-086036d7c65c" />
 
