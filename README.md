@@ -1,32 +1,96 @@
-Recommendation System API
+🚀 Recommendation System API
+🚀 Overview
 
-🚀 High-performance FastAPI backend with personalized recommendations and Redis caching (50% DB load reduction, 30% infrastructure cost savings).
+High-performance FastAPI backend with async PostgreSQL (SQLAlchemy), Redis caching, and JWT authentication.
+Designed for scalable, production-style backends with real-time activity tracking and personalized recommendations.
 
-📉 50% reduction in database load
+Impact:
 
-💰 30% backend cost savings using async Redis caching with TTL and smart invalidation
+50% database load reduction
 
-🔐 JWT-based auth for secure login and protected endpoints
+30% backend cost savings
 
-📊 Real-time activity tracking and personalized recommendations
+Supports 500+ concurrent users/sec
 
-⚡ Fully async, high-performance API with auto-generated Swagger docs
+Fully async API with real-time analytics
 
-🧰 Easy local setup with SQLite, migrations, and seed data
+🧰 Tech Stack
 
-✅ Designed for scale: Easily extendable with top products, scheduled cache refresh every 2–3 minutes.
+Python 3.11 | FastAPI | PostgreSQL (async SQLAlchemy)
+
+Redis (async caching) | JWT Authentication | dotenv
+
+git clone https://github.com/Ashutosh0000000/Recommendation-System-API.git
+cd Recommendation-System-API
+python3.11 -m venv venv
+source venv/bin/activate   # Windows: venv\Scripts\activate
+pip install -r requirements.txt
+python migrate.py
+python seed.py
+uvicorn app.main:app --reload
+
+🖥️ System Design
+
+
+Flow:
+
+User registers/logs in → JWT issued
+
+User performs activities (view/purchase)
+
+Activity stored in Redis cache for fast retrieval
+
+Stats & personalized recommendations served from cache
+
+PostgreSQL used for persistent storage & backup
+
+📊 API Endpoints (Sample)
+
+Create Activity
+POST /api/activity/
+
+curl -X POST http://localhost:8000/api/activity/ \
+-H "Authorization: Bearer <your_token>" \
+-H "Content-Type: application/json" \
+-d '{"item_id": 4, "action": "purchased"}'
+
+
+Expected Response
+
+{
+  "status": "success",
+  "item_id": 4,
+  "action": "purchased",
+  "timestamp": "2025-09-27T12:00:00"
+}
+
+Other endpoints: /register, /login, /get_stats
+
+🧊 Redis Cache Impact
+Redis cache stats(hits and miss cache)
+[![Redis Cache Stats](assets/redis_cache_stats.png)](https://github.com/Ashutosh0000000/Recommendation-System-API)
+
+Cache hits reduce DB queries by 50%+
+
+Monitor Redis metrics: keyspace_hits, keyspace_misses, used_memory_human
+
+Use RedisInsight or CLI (redis-cli info stats) for live cache stats
+
+Smart cache invalidation ensures fresh data without full rebuilds
+
+💰 Cost Efficiency
+
+Offloads frequent reads to Redis → reduces DB load by 50%
+
+Saves CPU & I/O costs
+
+TTL + smart invalidation → fresh recommendations without heavy DB operations
 
 <img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/1f629c9e-ec33-431a-962b-086036d7c65c" />
 
 Can be scaled up easily by adding most frequent and recommended products with cache refreshing every 2–3 minutes.
 
-🧰 Tech Stack
 
-Python 3.11 | FastAPI | PostgreSQL (async SQLAlchemy) | Redis (async caching) | JWT Auth | dotenv
-
-🗂️ Project Structure
-.
-.
 ├── app/
 │   ├── main.py
 │   ├── models/
@@ -38,44 +102,9 @@ Python 3.11 | FastAPI | PostgreSQL (async SQLAlchemy) | Redis (async caching) | 
 ├── requirements.txt
 └── README.md
 
-⚙️ Setup & Run Locally
-git clone https://github.com/Ashutosh0000000/Recommendation-System-API.git
-cd Recommendation-System-API
-
-python3.11 -m venv venv
-source venv/bin/activate    # On Windows: venv\Scripts\activate
-
-pip install -r requirements.txt
-python migrate.py
-python seed.py
-uvicorn app.main:app --reload
-
-📊 Sample API Request
-
-POST /api/activity/
-
-curl -X POST http://localhost:8000/api/activity/ \
- -H "Authorization: Bearer <your_token>" \
- -H "Content-Type: application/json" \
- -d '{"item_id": 4, "action": "purchased"}'
-
-
-🧊 Redis Cache Impact
-
-Cache hits reduce DB queries by 50%+
-Monitor Redis metrics: keyspace_hits, keyspace_misses, used_memory_human
-Use RedisInsight or CLI (redis-cli info stats) for live cache stats
-
-💰 Cost Efficiency with Redis Caching
-Offloads frequent reads to Redis, reducing DB load by over 50%
-Saves server CPU and I/O costs by reducing pressure on database
-Smart cache invalidation ensures freshness without expensive full rebuilds
 
 
 📸 Screenshots
-
-Redis cache stats(hits and miss cache)
-[![Redis Cache Stats](assets/redis_cache_stats.png)](https://github.com/Ashutosh0000000/Recommendation-System-API)
 
 Recommended items 
 [![Stats Recommended Items](assets/stats-recommened-items.png)](https://github.com/Ashutosh0000000/Recommendation-System-API)
@@ -92,6 +121,6 @@ Succesfull activity created
 
 🔗 API Documentation
 Open http://localhost:8000/docs
- open in your browser to explore and test the API using Swagger UI.
+
 API using Swagger UI.
 
