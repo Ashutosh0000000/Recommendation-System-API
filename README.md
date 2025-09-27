@@ -2,17 +2,18 @@
 🚀 Overview
 
 High-performance FastAPI backend with async PostgreSQL (SQLAlchemy), Redis caching, and JWT authentication.
+
 Designed for scalable, production-style backends with real-time activity tracking and personalized recommendations.
 
 Impact:
 
-50% database load reduction
+1). 50% database load reduction
 
-30% backend cost savings
+2). 30% backend cost savings
 
-Supports 500+ concurrent users/sec
+3). Supports 500+ concurrent users/sec
 
-Fully async API with real-time analytics
+4). Fully async API with real-time analytics
 
 🧰 Tech Stack
 
@@ -34,15 +35,15 @@ uvicorn app.main:app --reload
 
 Flow:
 
-User registers/logs in → JWT issued
+1). User registers/logs in → JWT issued
 
-User performs activities (view/purchase)
+2). User performs activities (view/purchase)
 
-Activity stored in Redis cache for fast retrieval
+3). Activity stored in Redis cache for fast retrieval
 
-Stats & personalized recommendations served from cache
+4). Stats & personalized recommendations served from cache
 
-PostgreSQL used for persistent storage & backup
+5). PostgreSQL used for persistent storage & backup
 
 📊 API Endpoints (Sample)
 
@@ -70,21 +71,21 @@ Other endpoints: /register, /login, /get_stats
 Redis cache stats(hits and miss cache)
 [![Redis Cache Stats](assets/redis_cache_stats.png)](https://github.com/Ashutosh0000000/Recommendation-System-API)
 
-Cache hits reduce DB queries by 50%+
+1). Cache hits reduce DB queries by 50%+
 
-Monitor Redis metrics: keyspace_hits, keyspace_misses, used_memory_human
+2). Monitor Redis metrics: keyspace_hits, keyspace_misses, used_memory_human
 
-Use RedisInsight or CLI (redis-cli info stats) for live cache stats
+3). Use RedisInsight or CLI (redis-cli info stats) for live cache stats
 
-Smart cache invalidation ensures fresh data without full rebuilds
+4). Smart cache invalidation ensures fresh data without full rebuilds
 
 💰 Cost Efficiency
 
-Offloads frequent reads to Redis → reduces DB load by 50%
+1). Offloads frequent reads to Redis → reduces DB load by 50%
 
-Saves CPU & I/O costs
+2). Saves CPU & I/O costs
 
-TTL + smart invalidation → fresh recommendations without heavy DB operations
+3). TTL + smart invalidation → fresh recommendations without heavy DB operations
 
 <img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/1f629c9e-ec33-431a-962b-086036d7c65c" />
 
